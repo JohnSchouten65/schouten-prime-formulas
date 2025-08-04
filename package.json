@@ -17,9 +17,9 @@
   "license": "MIT",
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/cscostruzioni/schouten-prime-formulas.git"
+    "url": "git+https://github.com/JohnSchouten65/schouten-prime-formulas.git"
   },
-  "homepage": "https://cscostruzioni.github.io/schouten-prime-formulas/",
+  "homepage": "https://JohnSchouten65.github.io/schouten-prime-formulas/",
   "scripts": {
     "dev": "vite",
     "build": "vite build",
