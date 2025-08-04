@@ -1,0 +1,36 @@
+{
+  "name": "schouten-prime-formulas",
+  "private": false,
+  "version": "1.0.0",
+  "type": "module",
+  "description": "Interactive web application for testing and visualizing Schouten's deterministic formulas for prime number calculations",
+  "main": "index.html",
+  "keywords": [
+    "mathematics",
+    "prime-numbers",
+    "schouten-formulas",
+    "3d-visualization",
+    "number-theory",
+    "interactive-calculator"
+  ],
+  "author": "CS Costruzioni",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/cscostruzioni/schouten-prime-formulas.git"
+  },
+  "homepage": "https://cscostruzioni.github.io/schouten-prime-formulas/",
+  "scripts": {
+    "dev": "vite",
+    "build": "vite build",
+    "preview": "vite preview",
+    "deploy": "npm run build && gh-pages -d dist"
+  },
+  "devDependencies": {
+    "gh-pages": "^6.3.0",
+    "vite": "^7.0.4"
+  },
+  "dependencies": {
+    "three": "^0.179.1"
+  }
+}

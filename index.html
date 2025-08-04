@@ -1,0 +1,164 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/svg+xml" href="/vite.svg" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Schouten Prime Formulas Calculator</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.16.8/katex.min.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.16.8/katex.min.js"></script>
+  </head>
+  <body>
+    <div id="app">
+      <header class="header">
+        <div class="container">
+          <h1 class="title">Schouten Prime Formulas</h1>
+          <p class="subtitle">Interactive Calculator & 3D Visualization</p>
+        </div>
+      </header>
+
+      <main class="main">
+        <div class="container">
+          <!-- Navigation Tabs -->
+          <nav class="tabs">
+            <button class="tab active" data-tab="deterministic">Deterministic Formulas</button>
+            <button class="tab" data-tab="counting">Prime Counting</button>
+            <button class="tab" data-tab="spiral">3D Spiral Visualization</button>
+            <button class="tab" data-tab="modular">Modular Filter</button>
+          </nav>
+
+          <!-- Tab Content -->
+          <div class="tab-content">
+            <!-- Deterministic Formulas Tab -->
+            <div id="deterministic" class="tab-panel active">
+              <div class="formula-section">
+                <h2>A. Deterministic Prime Generation</h2>
+                
+                <div class="formula-card">
+                  <h3>Next Prime Function</h3>
+                  <div class="formula-display" id="next-prime-formula"></div>
+                  <div class="calculator">
+                    <label for="next-prime-input">Enter k:</label>
+                    <input type="number" id="next-prime-input" min="1" value="10">
+                    <button id="next-prime-calc">Calculate Next Prime</button>
+                    <div class="result" id="next-prime-result"></div>
+                  </div>
+                </div>
+
+                <div class="formula-card">
+                  <h3>Gap Law</h3>
+                  <div class="formula-display" id="gap-law-formula"></div>
+                  <div class="calculator">
+                    <label for="gap-input">Enter prime p_n:</label>
+                    <input type="number" id="gap-input" min="2" value="7">
+                    <button id="gap-calc">Calculate Gap</button>
+                    <div class="result" id="gap-result"></div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Prime Counting Tab -->
+            <div id="counting" class="tab-panel">
+              <div class="formula-section">
+                <h2>B. Prime Counting & Inverse Functions</h2>
+                
+                <div class="formula-card">
+                  <h3>Prime Counting Function π(k)</h3>
+                  <div class="formula-display" id="counting-formula"></div>
+                  <div class="calculator">
+                    <label for="counting-input">Enter k:</label>
+                    <input type="number" id="counting-input" min="1" value="100">
+                    <button id="counting-calc">Count Primes</button>
+                    <div class="result" id="counting-result"></div>
+                  </div>
+                </div>
+
+                <div class="formula-card">
+                  <h3>Inverse Prime Counting p_n</h3>
+                  <div class="formula-display" id="inverse-formula"></div>
+                  <div class="calculator">
+                    <label for="inverse-input">Enter n (nth prime):</label>
+                    <input type="number" id="inverse-input" min="1" value="10">
+                    <button id="inverse-calc">Find nth Prime</button>
+                    <div class="result" id="inverse-result"></div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- 3D Spiral Visualization Tab -->
+            <div id="spiral" class="tab-panel">
+              <div class="formula-section">
+                <h2>D. Conical Prime Spiral Visualization</h2>
+                
+                <div class="formula-card">
+                  <h3>Conical Prime Spiral Formula</h3>
+                  <div class="formula-display" id="spiral-formula"></div>
+                  <div class="controls">
+                    <label for="spiral-range">Number of primes to visualize:</label>
+                    <input type="range" id="spiral-range" min="10" max="200" value="50">
+                    <span id="spiral-count">50</span>
+                    <button id="spiral-generate">Generate 3D Spiral</button>
+                  </div>
+                  <div id="spiral-container" class="visualization-container"></div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Modular Filter Tab -->
+            <div id="modular" class="tab-panel">
+              <div class="formula-section">
+                <h2>C. Primorial & Modular Filtering</h2>
+                
+                <div class="formula-card">
+                  <h3>Primorial Calculation</h3>
+                  <div class="formula-display" id="primorial-formula"></div>
+                  <div class="calculator">
+                    <label for="primorial-input">Enter prime p_n:</label>
+                    <input type="number" id="primorial-input" min="2" value="7">
+                    <button id="primorial-calc">Calculate Primorial</button>
+                    <div class="result" id="primorial-result"></div>
+                  </div>
+                </div>
+
+                <div class="formula-card">
+                  <h3>Survivor Criterion</h3>
+                  <div class="formula-display" id="survivor-formula"></div>
+                  <div class="calculator">
+                    <label for="survivor-input">Enter k to test:</label>
+                    <input type="number" id="survivor-input" min="1" value="30">
+                    <label for="survivor-prime">Up to prime:</label>
+                    <input type="number" id="survivor-prime" min="2" value="7">
+                    <button id="survivor-calc">Test Survivor Criterion</button>
+                    <div class="result" id="survivor-result"></div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </main>
+
+      <footer class="footer">
+        <div class="container">
+          <p>&copy; 2025 Schouten Prime Formulas Calculator</p>
+        </div>
+      </footer>
+    </div>
+    <script type="module" src="/src/main.js"></script>
+  </body>
+</html>l>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/svg+xml" href="/vite.svg" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Vite App</title>
+  </head>
+  <body>
+    <div id="app"></div>
+    <script type="module" src="/src/main.js"></script>
+  </body>
+</html>
