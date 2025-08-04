@@ -1,5 +1,18 @@
 // Test script to verify enhancements
 console.log('Testing Schouten Math enhancements...');
+console.log('Build timestamp: 2025-08-04T07:02:00Z');
+console.log('Version: 2.0-enhanced');
+
+// Check meta tags to verify correct version
+const buildMeta = document.querySelector('meta[name="build-timestamp"]');
+const versionMeta = document.querySelector('meta[name="version"]');
+if (buildMeta && versionMeta) {
+  console.log('✅ Correct HTML version loaded:', versionMeta.content);
+  console.log('✅ Build timestamp:', buildMeta.content);
+} else {
+  console.log('❌ Old HTML version - GitHub Pages not updated yet');
+  console.log('Please wait 5-10 minutes for GitHub Pages to update');
+}
 
 // Test NextPrime function
 try {
