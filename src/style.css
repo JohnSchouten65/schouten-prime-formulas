@@ -160,17 +160,27 @@ body {
 
 /* Formula Display */
 .formula-display {
-  background: var(--bg-secondary);
+  background: linear-gradient(135deg, #f8fafc 0%, #f1f5f9 100%);
+  border: 1px solid var(--border-color);
   border-radius: var(--border-radius);
   padding: 1.5rem;
-  margin-bottom: 1.5rem;
-  border-left: 4px solid var(--primary-color);
-  font-family: 'JetBrains Mono', 'Courier New', monospace;
-  overflow-x: auto;
+  margin: 1rem 0;
+  font-family: 'JetBrains Mono', 'Consolas', monospace;
+  font-size: 1.1rem;
+  text-align: center;
+  box-shadow: var(--shadow-sm);
+  position: relative;
+  overflow: hidden;
 }
 
-.formula-display .katex {
-  font-size: 1.1rem;
+.formula-display::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 3px;
+  background: linear-gradient(90deg, var(--primary-color), var(--accent-color));
 }
 
 /* Calculator Components */
@@ -203,55 +213,89 @@ body {
 
 .calculator button, .controls button {
   padding: 0.75rem 1.5rem;
-  background: var(--primary-color);
+  background: linear-gradient(135deg, var(--primary-color) 0%, var(--secondary-color) 100%);
   color: white;
   border: none;
   border-radius: var(--border-radius);
+  font-size: 1rem;
   font-weight: 500;
   cursor: pointer;
   transition: all 0.2s ease;
-  font-size: 1rem;
+  box-shadow: var(--shadow-md);
+  text-transform: uppercase;
+  letter-spacing: 0.025em;
 }
 
 .calculator button:hover, .controls button:hover {
-  background: var(--secondary-color);
   transform: translateY(-1px);
-  box-shadow: var(--shadow-md);
+  box-shadow: var(--shadow-lg);
+  background: linear-gradient(135deg, var(--secondary-color) 0%, var(--primary-color) 100%);
 }
 
 .calculator button:active, .controls button:active {
   transform: translateY(0);
+  box-shadow: var(--shadow-sm);
 }
 
 /* Results */
 .result {
-  grid-column: 1 / -1;
+  margin-top: 1rem;
   padding: 1rem;
   border-radius: var(--border-radius);
-  font-family: 'JetBrains Mono', monospace;
-  font-weight: 500;
-  margin-top: 1rem;
-  min-height: 3rem;
+  border: 1px solid var(--border-color);
+  background: var(--bg-card);
+  min-height: 50px;
   display: flex;
   align-items: center;
+  transition: all 0.3s ease;
 }
 
 .result.success {
-  background: rgba(16, 185, 129, 0.1);
-  border: 1px solid rgba(16, 185, 129, 0.3);
-  color: var(--success-color);
+  background: linear-gradient(135deg, #f0fdf4 0%, #dcfce7 100%);
+  border-color: var(--success-color);
+  box-shadow: var(--shadow-md);
 }
 
 .result.error {
-  background: rgba(239, 68, 68, 0.1);
-  border: 1px solid rgba(239, 68, 68, 0.3);
+  background: linear-gradient(135deg, #fef2f2 0%, #fee2e2 100%);
+  border-color: var(--error-color);
   color: var(--error-color);
+  box-shadow: var(--shadow-md);
 }
 
-.result.info {
-  background: rgba(37, 99, 235, 0.1);
-  border: 1px solid rgba(37, 99, 235, 0.3);
+.result-details {
+  width: 100%;
+}
+
+.result-details h4 {
   color: var(--primary-color);
+  margin-bottom: 0.75rem;
+  font-size: 1.1rem;
+  font-weight: 600;
+  border-bottom: 2px solid var(--primary-color);
+  padding-bottom: 0.25rem;
+}
+
+.result-details p {
+  margin: 0.5rem 0;
+  font-size: 0.95rem;
+  line-height: 1.5;
+}
+
+.result-details p strong {
+  color: var(--text-primary);
+  font-weight: 600;
+}
+
+.formula-note {
+  display: block;
+  margin-top: 0.75rem;
+  padding: 0.5rem;
+  background: rgba(37, 99, 235, 0.1);
+  border-left: 3px solid var(--primary-color);
+  font-style: italic;
+  color: var(--text-secondary);
+  border-radius: 0 var(--border-radius) var(--border-radius) 0;
 }
 
 /* 3D Visualization Container */
@@ -328,6 +372,23 @@ input[type="range"]::-moz-range-thumb {
   
   .formula-card {
     padding: 1.5rem;
+  }
+  
+  .result-details h4 {
+    font-size: 1rem;
+  }
+  
+  .result-details p {
+    font-size: 0.9rem;
+  }
+  
+  .formula-display {
+    padding: 1rem;
+    font-size: 1rem;
+  }
+  
+  .calculator {
+    padding: 1rem;
   }
 }
 
